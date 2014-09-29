@@ -1,0 +1,74 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2012 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\usepackage{xeCJK}
+% moderncv themes
+\moderncvstyle{classic}                        % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                          % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}    % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+\setCJKmainfont[BoldFont={Adobe Heiti Std},
+                ItalicFont={Adobe Kaiti Std}]
+               {Adobe Song Std}
+\setCJKmonofont{Adobe Fangsong Std}
+%\setmainfont{Palatino Linotype}
+%\setsansfont{Helvetica}
+
+% adjust the page margins
+\usepackage[vmargin=1cm,hmargin=2cm]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}           % if you want to change the width of the column with the dates
+%\setlength{\maketitlenamewidth}{10cm}        % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+\usepackage[perpage,bottom,stable]{footmisc}
+
+\firstname{隋清宇}
+\familyname{}
+\address{上海市闵行区东川路800号\\上海交通大学闵行校区\\D19-418学生宿舍\\}{200240}    % optional, remove the line if not wanted
+\mobile{13917041240}                     % optional, remove the line if not wanted
+\email{sqybilly@gmail.com}                          % optional, remove the line if not wanted
+%\homepage{sqybi.com}                    % optional, remove the line if not wanted
+\photo[54pt][0.4pt]{picture}                  % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file; optional, remove the line if not wanted
+
+\begin{document}
+\maketitle
+
+%\vspace{-1cm}
+
+\section{教育情况}
+\cventry{2009 -- 2013 (预计)}{工学学士}{计算机科学与工程}{电子信息与电气工程学院}{上海交通大学}{}
+
+\section{研究项目}
+\cventry{2011 -- 至今}{用于同名消歧的结构化网页上下文抽取}{上海交通大学本科生研究计划（PRP）}{Advanced Data And Programming Technology (ADAPT) Lab\footnotemark{}}{上海交通大学}{作为项目的主要成员，完成了主要分块聚类算法的开发和测试数据集的标定工作。}\footnotetext{\link{http://www.cs.sjtu.edu.cn/~kzhu/adapt/}}
+\cventry{2010 -- 2012}{特殊声波定向定位仪的研发}{第二期上海交通大学大学生创新实践计划}{}{}{完成了Labview代码部分的开发工作。}
+
+\section{经历}
+\cventry{2010}{课程助教}{数据结构}{上海交通大学}{}{担任上海交通大学数据结构课程助教，负责作业批改、习题讲解、代课等。\newline{}任课教师：俞勇\ 教授\footnotemark{}}\footnotetext{\link{http://apex.sjtu.edu.cn/apex\_wiki/yyu}}
+\cventry{2011}{开发者}{上海交通大学本科生成绩单、在读证明办理预约系统}{上海交通大学教务处}{}{参与此系统的开发工作，主要处理预约请求流程部分以及与校园支付通系统连接部分的代码。\newline{}项目使用C\#与ASP.NET作为开发语言。}
+\cventry{2009}{开发者}{葡萄\footnotemark{}}{上海交通大学网络中心}{}{参与此网站的开发工作，主要负责论坛部分的开发，使用PHP作为开发语言。}\footnotetext{\link{http://pt.sjtu.edu.cn/}}
+\cventry{2012}{特约作者}{果壳网\footnotemark{}}{}{}{担任果壳网死理性派主题站特约作者，负责撰写数学与信息学方面的文章。}\footnotetext{\link{http://www.guokr.com/}}
+%\cventry{2009}{队员}{ACM/ICPC}{上海交通大学}{}{在2009年参加上海交通大学ACM队。}
+\cventry{2008 -- 2009}{教师}{鑫迪教育}{天津}{}{在天津鑫迪教育辅导班担任中学信息学奥林匹克竞赛教师。}
+\cventry{2009}{业余教师}{上海市实验学校}{上海}{}{在上海市实验学校进行中学信息学奥林匹克竞赛指导。}
+
+\section{奖项}
+\cventry{2008}{全国青少年信息学奥林匹克竞赛（NOI）}{第46名}{银牌}{}{因此奖项被上海交通大学提前录取。}
+\cventry{2009}{Google Codejam}{前500名}{}{}{}
+\cventry{2009}{有道难题}{复赛}{}{}{}
+
+\section{技能}
+\cvitem{算法}{ACM/ICPC解题能力，Topcoder Algorithm Rating 1705。}
+\cvitem{语言}{\textbf{C\#}，\textbf{C++}，Python，C，PHP，LaTeX，Mathematica，SQL，HTML，CSS。}
+\cvitem{系统}{ArchLinux，Minix，Windows，Android。}
+\cvitem{排版}{熟练使用\LaTeX 进行排版，使用Asymptote进行绘图。}
+\cvitem{能力}{出色的语言和算法学习能力，对新事物接受迅速。与人交流和善，容易相处。}
+
+\end{document}
+
+
+%% end of file `template.tex'.
