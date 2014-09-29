@@ -1,3 +1,4 @@
+%% start of file
 %% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
 %
 % This work may be distributed and/or modified under the
@@ -18,7 +19,7 @@
 %\usepackage{CJKutf8} % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
 
 % set fonts
-\setmainfont{Palatino Linotype}
+%\setmainfont{Palatino Linotype}
 %\setsansfont{Helvetica}
 
 % adjust the page margins
@@ -29,7 +30,7 @@
 
 % personal data
 \name{Qingyu}{Sui}
-\address{\#401, Zhichundongli, Zhichun Road, Haidian District}{Beijing}{China} % optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+%\address{\#401, Zhichundongli, Zhichun Road, Haidian District}{Beijing, China}{China} % optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
 \phone[mobile]{+86~186~0057~4747} % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
 \email{sqybilly@gmail.com} % optional, remove / comment the line if not wanted
 \social[linkedin]{sqybi} % optional, remove / comment the line if not wanted
@@ -63,10 +64,74 @@
 
 \vspace{-1cm}
 
-\section{Education}
-\cventry{2009 -- 2013\\(expected)}{B.S. of Computer Science and Engineering}{Shanghai Jiao Tong University (SJTU)}{Shanghai}{P.R.China}{}
+\section{Experience}
+\cventry{2013}
+        {Software Development Engineer}
+        {}
+        {Microsoft}
+        {}
+        {\begin{itemize}%
+         \item Activity Storage Team, MSN Social and Community Platform, STC.
+               \begin{itemize}%
+               \item Activity Storage\newline{}%
+                     No-SQL storage as the backend of MSN, Bing Score, etc., aimed for a real-time in-memory storage service.\newline{}%
+                     Responible for performance tests and bug fixing.
+               \item Image Storage\newline{}%
+                     Image storage backend for Bing Score.\newline{}%
+                     Responsible for a whole test framework on Azure.
+               \end{itemize}
+         \item Proactive Experience Team, Information Platform and Experiences, STC.
+               \begin{itemize}%
+               \item Halsey Diagnostic Dashboard\newline{}%
+                     A diagnostic infrastructure for Cortana developers with user-friendly frontend.
+               \item Cortana Proactive Experience\newline{}%
+                     Responsible for some features on Cortana proactive canvas.
+               \end{itemize}
+         \item Spartan Team, STC.
+               \begin{itemize}%
+               \item Execution Broker for Metadata Platform\newline{}%
+                     Implemented an orchestration engine which translate data movement operation in-memory objects to an artifacture of Sangam which is a job schedule platform, then deploy and monitor them. For Office 365 Big Data Platform and some other internal customers.
+               \end{itemize}
+         \end{itemize}}
+\cventry{2012}
+        {SDE Intern}
+        {SQL Dev Group}
+        {Microsoft}
+        {}
+        {Responsible for implementing the NoInit feature in Sync Framework (Data Sync Service), to speed up the initial sync process.}
+%\cventry{2010}
+%        {Teaching Assistant}
+%        {Data Structure}
+%        {SJTU}
+%        {}
+%        {Worked as the teaching assistant of the data structure course in SJTU. Responsible for grading, discussion and substitution for professor, etc.\newline{}Course Professor: Prof. Yu\footnotemark{}}
+%        \footnotetext{\link{http://apex.sjtu.edu.cn/apex\_wiki/yyu}}
+%\cventry{2011}
+%        {Developer}
+%        {Undergraduate Transcript and Certificate of Standing Transaction System}
+%        {SJTU Office of Academic Affairs}
+%        {}
+%        {Developed the online ordering part and the interface between this system and Campus Payment system.\newline{}Used C\# and ASP.NET as the programming language in development.}
+%\cventry{2009}
+%        {Developer}
+%        {PuTao\footnotemark{}}
+%        {SJTU Network Center}
+%        {}
+%        {Responsible for the forum development, using PHP as the programming language. }\footnotetext{\link{http://pt.sjtu.edu.cn/}}
+%\cventry{2012}
+%        {Writer}
+%        {Guokr\footnotemark{}}
+%        {}
+%        {}
+%        {Worked as the staff writer for Guokr, mostly on math and informatics.}\footnotetext{\link{http://www.guokr.com/}}
+%\cventry{2009}{队员}{ACM/ICPC}{上海交通大学}{}{在2009年参加上海交通大学ACM队。}
+%\cventry{2008 -- 2009}{Teacher}{Xindi Education}{Tianjin}{}{Worked as teacher of Olympiad in Informatics (OI) in Xindi Education.}
+%\cventry{2009}{Tutor}{Shanghai Experimental High School}{Shanghai}{}{Worked as teacher of Olympiad in Informatics (OI) in Shanghai Experimental High School.}
 
-\section{Research Projects}
+\section{Education}
+\cventry{2009 -- 2013}{B.S. of Computer Science and Engineering}{Shanghai Jiao Tong University (SJTU)}{}{}{}
+
+\section{Publication}
 \cventry{2011 -- 2012}
         {Context Extraction for Name Disambiguation on Structured Web Pages}{Participation in Research Program (PRP)}
         {Advanced Data And Programming Technology Lab\footnotemark{}}
@@ -98,42 +163,6 @@
          \end{itemize}
         }
 
-\section{Experience}
-\cventry{2012}
-        {SDE Intern}
-        {SQL Dev Group}
-        {Microsoft}
-        {}
-        {Responsible for implementing the NoInit feature in Sync Framework (Data Sync Service), to speed up the initial sync process.}
-\cventry{2010}
-        {Teaching Assistant}
-        {Data Structure}
-        {SJTU}
-        {}
-        {Worked as the teaching assistant of the data structure course in SJTU. Responsible for grading, discussion and substitution for professor, etc.\newline{}Course Professor: Prof. Yu\footnotemark{}}
-        \footnotetext{\link{http://apex.sjtu.edu.cn/apex\_wiki/yyu}}
-\cventry{2011}
-        {Developer}
-        {Undergraduate Transcript and Certificate of Standing Transaction System}
-        {SJTU Office of Academic Affairs}
-        {}
-        {Developed the online ordering part and the interface between this system and Campus Payment system.\newline{}Used C\# and ASP.NET as the programming language in development.}
-\cventry{2009}
-        {Developer}
-        {PuTao\footnotemark{}}
-        {SJTU Network Center}
-        {}
-        {Responsible for the forum development, using PHP as the programming language. }\footnotetext{\link{http://pt.sjtu.edu.cn/}}
-\cventry{2012}
-        {Writer}
-        {Guokr\footnotemark{}}
-        {}
-        {}
-        {Worked as the staff writer for Guokr, mostly on math and informatics.}\footnotetext{\link{http://www.guokr.com/}}
-%\cventry{2009}{队员}{ACM/ICPC}{上海交通大学}{}{在2009年参加上海交通大学ACM队。}
-%\cventry{2008 -- 2009}{Teacher}{Xindi Education}{Tianjin}{}{Worked as teacher of Olympiad in Informatics (OI) in Xindi Education.}
-%\cventry{2009}{Tutor}{Shanghai Experimental High School}{Shanghai}{}{Worked as teacher of Olympiad in Informatics (OI) in Shanghai Experimental High School.}
-
 \section{Awards}
 \cventry{2008}
         {National Olympiad in Informatics (NOI)}
@@ -149,16 +178,16 @@
 
 \section{Skills}
 \cvitem{Algorithm}
-       {ACM/ICPC-level algorithmic problem-solving, Topcoder Algorithm Rating 1646 (rank 1121 of 8431).}
+       {ACM/ICPC-level algorithmic problem-solving, Topcoder Algorithm Rating 1646.}
 \cvitem{Language}
        {\textbf{C\#}, \textbf{C++}, Python, C, PHP, \LaTeX, HTML.} %Mathematica, SQL, Java, CSS
 %\cvitem{Platform}{Linux, MINIX, Windows, Android.}
 \cvitem{Typography}
-       {Familar with typesetting in \LaTeX，and graphics drawing in Asymptote。}
+       {Familar with typesetting in \LaTeX and graphics drawing in Asymptote.}
 \cvitem{General}
-       {Excellent ability of learning programming languages and algorithms, readily accepts new things.\newline{}Friendly and easy to get along with other people.}
+       {Excellent ability of learning programming languages and algorithms, readily accepts new things.\newline{}Friendly and easily getting along with other people.}
 
 \end{document}
 
 
-%% end of file `template.tex'.
+%% end of file.
