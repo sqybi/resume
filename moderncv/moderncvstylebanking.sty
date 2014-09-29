@@ -1,5 +1,5 @@
 %% start of file `moderncvstylebanking.sty'.
-%% Copyright 2006-2012 Xavier Danaux (xdanaux@gmail.com).
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License version 1.3c,
@@ -10,7 +10,7 @@
 %                identification
 %-------------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{moderncvstylebanking}[2012/02/06 v0.19 modern curriculum vitae scheme: banking]
+\ProvidesPackage{moderncvstylebanking}[2013/04/29 v1.5.1 modern curriculum vitae and letter style scheme: banking]
 
 
 %-------------------------------------------------------------------------------
@@ -19,18 +19,90 @@
 
 
 %-------------------------------------------------------------------------------
-%                package options
+%                overall style definition
 %-------------------------------------------------------------------------------
-\RequirePackage{tgpagella}
-\renewcommand*{\familydefault}{\rmdefault}
+% fonts
+%\ifxetexorluatex
+%  \setmainfont{Tex-Gyre Pagella}
+%  \setsansfont{Tex-Gyre Pagella}
+%  \setmathfont{Tex-Gyre Pagella}
+%  \setmathfont[range=\mathit,\mathsfit]{Tex-Gyre Pagella Italic}
+%  \setmathfont[range=\mathbfup,\mathbfsfup]{Tex-Gyre Pagella Bold}
+%  \setmathfont[range=\mathbfit,\mathbfsfit]{Tex-Gyre Pagella Bold Italic}
+%\else
+  \IfFileExists{tgpagella.sty}%
+    {%
+      \RequirePackage{tgpagella}%
+      \renewcommand*{\familydefault}{\rmdefault}}%
+    {}
+%\fi
+
+% symbols
+\moderncvicons{awesome}
+
+% commands
+\newcommand*{\maketitlesymbol}{%
+    {~~~{\rmfamily\textbullet}~~~}}% the \rmfamily is required to force Latin Modern fonts when using sans serif, as OMS/lmss/m/n is not defined and gets substituted by OMS/cmsy/m/n
+%   internal command to add an element to the footer
+%   it collects the elements in a temporary box, and checks when to flush the box
+\newsavebox{\maketitlebox}%
+\newsavebox{\maketitletempbox}%
+\newlength{\maketitlewidth}%
+\newlength{\maketitleboxwidth}%
+\newif\if@firstmaketitleelement\@firstmaketitleelementtrue%
+%   adds an element to the maketitle, separated by maketitlesymbol
+%   usage: \addtomaketitle[maketitlesymbol]{element}
+\newcommand*{\addtomaketitle}[2][\maketitlesymbol]{%
+  \if@firstmaketitleelement%
+    \savebox{\maketitletempbox}{\usebox{\maketitlebox}#2}%
+  \else%
+    \savebox{\maketitletempbox}{\usebox{\maketitlebox}#1#2}\fi%
+  \settowidth{\maketitleboxwidth}{\usebox{\maketitletempbox}}%
+  \ifnum\maketitleboxwidth<\maketitlewidth%
+    \savebox{\maketitlebox}{\usebox{\maketitletempbox}}%
+    \@firstmaketitleelementfalse%
+  \else%
+    \flushmaketitle{}\\%
+    \savebox{\maketitlebox}{#2}%
+    \savebox{\maketitletempbox}{#2}%
+    \settowidth{\maketitleboxwidth}{\usebox{\maketitlebox}}%
+    \@firstmaketitleelementfalse\fi}
+%   internal command to flush the maketitle
+\newcommand*{\flushmaketitle}{%
+  \strut\usebox{\maketitlebox}%
+  \savebox{\maketitlebox}{}%
+  \savebox{\maketitletempbox}{}%
+  \setlength{\maketitleboxwidth}{0pt}}
+\renewcommand*{\maketitle}{%
+  \setlength{\maketitlewidth}{0.8\textwidth}%
+  \hfil%
+  \parbox{\maketitlewidth}{%
+    \centering%
+    % name and title
+    \namestyle{\@firstname~\@lastname}%
+    \ifthenelse{\equal{\@title}{}}{}{\titlestyle{~|~\@title}}\\% \isundefined doesn't work on \@title, as LaTeX itself defines \@title (before it possibly gets redefined by \title) 
+    % detailed information
+    \addressfont\color{color2}%
+    \ifthenelse{\isundefined{\@addressstreet}}{}{\addtomaketitle{\addresssymbol\@addressstreet}%
+      \ifthenelse{\equal{\@addresscity}{}}{}{\addtomaketitle[~--~]{\@addresscity}}% if \addresstreet is defined, \addresscity and \addresscountry will always be defined but could be empty
+      \ifthenelse{\equal{\@addresscountry}{}}{}{\addtomaketitle[~--~]{\@addresscountry}}%
+      \flushmaketitle\@firstmaketitleelementtrue\\}%
+    \collectionloop{phones}{% the key holds the phone type (=symbol command prefix), the item holds the number
+      \addtomaketitle{\csname\collectionloopkey phonesymbol\endcsname\collectionloopitem}}%
+    \ifthenelse{\isundefined{\@email}}{}{\addtomaketitle{\emailsymbol\emaillink{\@email}}}%
+    \ifthenelse{\isundefined{\@homepage}}{}{\addtomaketitle{\homepagesymbol\httplink{\@homepage}}}%
+    \collectionloop{socials}{% the key holds the social type (=symbol command prefix), the item holds the link
+      \addtomaketitle{\csname\collectionloopkey socialsymbol\endcsname\collectionloopitem}}%
+    \ifthenelse{\isundefined{\@extrainfo}}{}{\addtomaketitle{\@extrainfo}}%
+    \flushmaketitle}\\[2.5em]}% need to force a \par after this to avoid weird spacing bug at the first section if no blank line is left after \maketitle
 
 
 %-------------------------------------------------------------------------------
-%                style definition
+%                resume style definition
 %-------------------------------------------------------------------------------
 % fonts
 \renewcommand*{\namefont}{\Huge\bfseries\upshape}
-\renewcommand*{\titlefont}{\LARGE\mdseries\slshape}
+\renewcommand*{\titlefont}{\Huge\mdseries\upshape}
 \renewcommand*{\addressfont}{\normalsize\mdseries\upshape}
 \renewcommand*{\quotefont}{\large\slshape}
 \renewcommand*{\sectionfont}{\Large\bfseries\upshape}
@@ -38,15 +110,15 @@
 \renewcommand*{\hintfont}{\bfseries}
 
 % styles
-\newcommand*{\namestyle}[1]{{\namefont\textcolor{color1}{#1}}}
-\newcommand*{\titlestyle}[1]{{\titlefont\textcolor{color2}{#1}}}
-\newcommand*{\addressstyle}[1]{{\addressfont\textcolor{color1}{#1}}}
-\newcommand*{\quotestyle}[1]{{\quotefont\textcolor{color1}{#1}}}
-\newcommand*{\sectionstyle}[1]{{\sectionfont\textcolor{color1}{#1}}}
-\newcommand*{\subsectionstyle}[1]{{\subsectionfont\textcolor{color1}{#1}}}
-\newcommand*{\hintstyle}[1]{{\hintfont\textcolor{color0}{#1}}}
+\renewcommand*{\namestyle}[1]{{\namefont\textcolor{color1}{#1}}}
+\renewcommand*{\titlestyle}[1]{{\titlefont\textcolor{color2!85}{#1}}}
+\renewcommand*{\addressstyle}[1]{{\addressfont\textcolor{color1}{#1}}}
+\renewcommand*{\quotestyle}[1]{{\quotefont\textcolor{color1}{#1}}}
+\renewcommand*{\sectionstyle}[1]{{\sectionfont\textcolor{color1}{#1}}}
+\renewcommand*{\subsectionstyle}[1]{{\subsectionfont\textcolor{color1}{#1}}}
+\renewcommand*{\hintstyle}[1]{{\hintfont\textcolor{color0}{#1}}}
 
-% length used
+% lengths
 \newlength{\quotewidth}
 \newlength{\hintscolumnwidth}
 \setlength{\hintscolumnwidth}{0.3\textwidth}%
@@ -59,8 +131,8 @@
 \newlength{\listitemmaincolumnwidth}
 \newlength{\listdoubleitemmaincolumnwidth}
 
-% recompute all the lengths that depends on the text width
-\renewcommand*{\recomputelengths}{%
+% commands
+\renewcommand*{\recomputecvlengths}{%
   \setlength{\quotewidth}{0.65\textwidth}%
   % main lenghts
   \setlength{\maincolumnwidth}{\textwidth}%
@@ -73,71 +145,34 @@
   \setlength{\listdoubleitemmaincolumnwidth}{\maincolumnwidth-\listitemsymbolwidth-\separatorcolumnwidth-\listitemsymbolwidth}%
   \setlength{\listdoubleitemmaincolumnwidth}{0.5\listdoubleitemmaincolumnwidth}%
   % fancyhdr lengths
-  \renewcommand{\headwidth}{\textwidth}}
+  \renewcommand{\headwidth}{\textwidth}%
+  % regular lengths
+  \setlength{\parskip}{0\p@}}
 
-% cv footer
-\newcommand*{\maketitlesymbol}{%
-    {~~~\textbullet~~~}}% \textbullet forces the use of the CMSY font, even when latin modern fonts are used :(
-%   internal command to add an element to the footer
-%   it collects the elements in a temporary box, and checks when to flush the box
-\newsavebox{\maketitlebox}%
-\newsavebox{\maketitletempbox}%
-\newlength{\maketitlewidth}%
-\newlength{\maketitleboxwidth}%
-%   adds an element to the maketitle, separated by maketitlesymbol
-%   usage: \addtomaketitle[maketitlesymbol]{element}
-\newcommand*{\addtomaketitle}[2][\maketitlesymbol]{%
-  \savebox{\maketitletempbox}{\usebox{\maketitlebox}#1#2}%
-  \settowidth{\maketitleboxwidth}{\usebox{\maketitletempbox}}%
-  \ifnum\maketitleboxwidth<\maketitlewidth%
-    \savebox{\maketitlebox}{\usebox{\maketitletempbox}}
-  \else%
-    \flushmaketitle{}\\%
-    \savebox{\maketitlebox}{#2}%
-    \savebox{\maketitletempbox}{#2}\fi}
-%   internal command to flush the maketitle
-\newcommand*{\flushmaketitle}{%
-  \strut\usebox{\maketitlebox}%
-  \savebox{\maketitlebox}{}%
-  \savebox{\maketitletempbox}{}}
-\renewcommand*{\maketitle}{%
-  \setlength{\maketitlewidth}{0.8\textwidth}%
-  \hfil%
-  \parbox{\maketitlewidth}{%
-    \centering%
-    % name (title is not visible)
-    \namestyle{\@firstname~\@familyname}\\%
-    % detailed information
-    \color{color2}\addressfont%
-    \ifthenelse{\isundefined{\@addressstreet}}{}{\addtomaketitle[]{\addresssymbol\@addressstreet}%
-      \ifthenelse{\equal{\@addresscity}{}}{}{\addtomaketitle[~--~]{\@addresscity}}\flushmaketitle}% if \addresstreet is defined, \addresscity will always be defined but could be empty
-    \ifthenelse{\isundefined{\@mobile}}{}{\addtomaketitle[]{\mobilesymbol\@mobile}}%
-    \ifthenelse{\isundefined{\@phone}}{}{\addtomaketitle{\phonesymbol\@phone}}%
-    \ifthenelse{\isundefined{\@fax}}{}{\addtomaketitle{\faxsymbol\@fax}}%
-    \ifthenelse{\isundefined{\@email}}{}{\addtomaketitle{\emailsymbol\emaillink{\@email}}}%
-    \ifthenelse{\isundefined{\@homepage}}{}{\addtomaketitle{\homepagesymbol\httplink{\@homepage}}}%
-    \ifthenelse{\isundefined{\@extrainfo}}{}{\addtomaketitle{\@extrainfo}}%
-    \flushmaketitle}\\[2.5em]%
-     % optional quote
-    \ifthenelse{\isundefined{\@quote}}%
-      {}%
-      {{\centering\begin{minipage}{\quotewidth}\centering\quotestyle{\@quote}\end{minipage}\\[2.5em]}}%
-    \par}% to avoid weird spacing bug at the first section if no blank line is left after \maketitle
+\renewcommand*{\makecvtitle}{%
+  % recompute lengths (in case we are switching from letter to resume, or vice versa)
+  \recomputecvlengths%
+  \maketitle%
+  % optional quote
+  \ifthenelse{\isundefined{\@quote}}%
+    {}%
+    {{\centering\begin{minipage}{\quotewidth}\centering\quotestyle{\@quote}\end{minipage}\\[2.5em]}}%
+  \par}% to avoid weird spacing bug at the first section if no blank line is left after \maketitle}
 
-\renewcommand*{\section}[1]{%
+\RenewDocumentCommand{\section}{sm}{%
   \par\addvspace{2.5ex}%
-  \phantomsection{}%
-  \addcontentsline{toc}{section}{#1}%
-  \strut\sectionstyle{#1}%
+  \phantomsection{}% reset the anchor for hyperrefs
+  \addcontentsline{toc}{section}{#2}%
+  \strut\sectionstyle{#2}%
   {\color{color1}\hrule}%
   \par\nobreak\addvspace{1ex}\@afterheading}
 
-\newcommand{\subsectionfill}{\cleaders\hbox to 0.35em{\scriptsize.}\hfill}% for a dashed fill
-\renewcommand*{\subsection}[1]{%
+\newcommand{\subsectionfill}{\xleaders\hbox to 0.35em{\scriptsize.}\hfill}% different subsectionfills will not be perfectly aligned, but remaining space at the end of the fill will be distributed evenly between leaders, so it will be barely visible
+\RenewDocumentCommand{\subsection}{sm}{%
   \par\addvspace{1ex}%
   \phantomsection{}%
-  \addcontentsline{toc}{subsection}{#1}%
-  \strut\subsectionstyle{#1}{\color{color1}{\subsectionfill}}%
+  \addcontentsline{toc}{subsection}{#2}%
+  \strut\subsectionstyle{#2}{\color{color1}{\subsectionfill}}%
   \par\nobreak\addvspace{0.5ex}\@afterheading}
 
 \renewcommand*{\cvitem}[3][.25em]{%
@@ -151,7 +186,7 @@
   \par\addvspace{#1}}
 
 \renewcommand*{\cvlistitem}[2][.25em]{%
-  \listitemsymbol#2%
+  \listitemsymbol\begin{minipage}[t]{\listitemmaincolumnwidth}#2\end{minipage}%
   \par\addvspace{#1}}
 
 \renewcommand*{\cvlistdoubleitem}[3][.25em]{%
@@ -205,6 +240,48 @@
     \def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
     \end{list}%
   }
+
+
+%-------------------------------------------------------------------------------
+%                letter style definition
+%-------------------------------------------------------------------------------
+% commands
+\renewcommand*{\recomputeletterlengths}{
+  \recomputecvlengths%
+  \setlength{\parskip}{6\p@}}
+
+\renewcommand*{\makelettertitle}{%
+  % recompute lengths (in case we are switching from letter to resume, or vice versa)
+  \recomputeletterlengths%
+  % sender block
+  \maketitle%
+  \par%
+   % recipient block
+  \begin{minipage}[t]{.5\textwidth}
+    \raggedright%
+    \addressfont%
+    {\bfseries\upshape\@recipientname}\\%
+    \@recipientaddress%
+  \end{minipage}
+  % date
+  \hfill % US style
+%  \\[1em] % UK style
+  \@date\\[2em]% US informal style: "April 6, 2006"; UK formal style: "05/04/2006"
+  % opening
+  \raggedright%
+  \@opening\\[1.5em]%
+  % ensure no extra spacing after \makelettertitle due to a possible blank line
+%  \ignorespacesafterend% not working
+  \hspace{0pt}\par\vspace{-\baselineskip}\vspace{-\parskip}}
+
+\renewcommand*{\makeletterclosing}{
+  \@closing\\[3em]%
+  {\bfseries \@firstname~\@lastname}%
+  \ifthenelse{\isundefined{\@enclosure}}{}{%
+    \\%
+    \vfill%
+    {\color{color2}\itshape\enclname: \@enclosure}}}
+
 
 \endinput
 
