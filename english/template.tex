@@ -6,7 +6,7 @@
 % available at http://www.latex-project.org/lppl/.
 
 
-\documentclass{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[10pt]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 \usepackage{xeCJK}
 % moderncv themes
 \moderncvstyle{classic}                        % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
@@ -25,6 +25,8 @@
 \setlength{\hintscolumnwidth}{2.5cm}           % if you want to change the width of the column with the dates
 %\setlength{\maketitlenamewidth}{10cm}        % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
+\nopagenumbers{}
+
 \firstname{Qingyu}
 \familyname{Sui}
 \address{F0903027, Minhang Campus\\Shanghai Jiao Tong University\\800 Dongchuan Rd, Minhang District, Shanghai\\}{P.R.China 200240}    % optional, remove the line if not wanted
@@ -42,31 +44,96 @@
 \cventry{2009 -- 2013\\(expected)}{B.S. of Computer Science and Engineering}{Shanghai Jiao Tong University (SJTU)}{Shanghai}{P.R.China}{}
 
 \section{Research Projects}
-\cventry{2011 -- 2012}{Context Extraction for Name Disambiguation on Structured Web Pages}{Participation in Research Program (PRP)}{Advanced Data And Programming Technology Lab\footnotemark{}}{SJTU}{Developed majority of the algorithm, and finished the calibration of the test dataset, as a principal member of this project.}\footnotetext{\link[http://www.cs.sjtu.edu.cn/$\sim$kzhu/adapt]{http://www.cs.sjtu.edu.cn/~kzhu/adapt}}
-\cventry{2012 -- present}{Image Classification by Context Conceptualization}{}{Advanced Data And Programming Technology Lab}{SJTU}{Responsible for the organization and implementation of the main algorithm.}
-\cventry{2010 -- 2012}{The Research and Development of Special Acoustic Directional Locator}{The 2nd Shanghai Jiao Tong University Students' Innovative Practice Projects}{}{}{Developed the Labview code in the project.}
+\cventry{2011 -- 2012}
+        {Context Extraction for Name Disambiguation on Structured Web Pages}{Participation in Research Program (PRP)}
+        {Advanced Data And Programming Technology Lab\footnotemark{}}
+        {SJTU}
+        {\begin{itemize}
+          \item{An algorithm which can extract context from a webpage with a specific entity name, used as a preprocessor for name disambiguation methods.}
+          \item{Developed majority of the algorithm, and finished the calibration of the test dataset, as a principal member of this project.}
+         \end{itemize}
+        }
+        \footnotetext{\link[http://www.cs.sjtu.edu.cn/$\sim$kzhu/adapt]{http://www.cs.sjtu.edu.cn/~kzhu/adapt}}
+\cventry{2012 -- present}
+        {Image Classification by Context Conceptualization}
+        {}
+        {Advanced Data And Programming Technology Lab}
+        {SJTU}
+        {\begin{itemize}
+          \item{Classify images in the search result of Google Image by textual information from their original webpages. We use incremental HAC as the clustering algorithm, Sibling and Wikification to extract signals from HTML text.}
+          \item{Responsible for the design and implementation of the core algorithm.}
+         \end{itemize}
+        }
+\cventry{2010 -- 2012}
+        {The Research and Development of Special Acoustic Directional Locator}
+        {The 2nd Shanghai Jiao Tong University Students' Innovative Practice Projects}
+        {}
+        {}
+        {\begin{itemize}
+          \item{A system which can react to special sound and locate the sound source.}
+          \item{Developed the Labview code in the project.}
+         \end{itemize}
+        }
 
 \section{Experience}
-\cventry{2012}{SDE Intern}{SQL Dev Group}{Microsoft}{}{Responsible for implementing the NoInit feature in Sync Framework, to speed up the initial sync process.}
-\cventry{2010}{Teaching Assistant}{Data Structure}{SJTU}{}{Worked as the teaching assistant of the data structure course in SJTU. Responsible for grading, discussion and substitution for professor, etc.\newline{}Course Professor: Prof. Yu\footnotemark{}}\footnotetext{\link{http://apex.sjtu.edu.cn/apex\_wiki/yyu}}
-\cventry{2011}{Developer}{Undergraduate Transcript and Certificate of Standing Transaction System}{SJTU Office of Academic Affairs}{}{Developed the online ordering part and the interface between this system and Campus Payment system.\newline{}Used C\# and ASP.NET as the programming language in development.}
-\cventry{2009}{Developer}{PuTao\footnotemark{}}{SJTU Network Center}{}{Responsible for the forum development, using PHP as the programming language. }\footnotetext{\link{http://pt.sjtu.edu.cn/}}
-\cventry{2012}{Writer}{Guokr\footnotemark{}}{}{}{Worked as the staff writer for Guokr, mostly on math and informatics.}\footnotetext{\link{http://www.guokr.com/}}
+\cventry{2012}
+        {SDE Intern}
+        {SQL Dev Group}
+        {Microsoft}
+        {}
+        {Responsible for implementing the NoInit feature in Sync Framework (Data Sync Service), to speed up the initial sync process.}
+\cventry{2010}
+        {Teaching Assistant}
+        {Data Structure}
+        {SJTU}
+        {}
+        {Worked as the teaching assistant of the data structure course in SJTU. Responsible for grading, discussion and substitution for professor, etc.\newline{}Course Professor: Prof. Yu\footnotemark{}}
+        \footnotetext{\link{http://apex.sjtu.edu.cn/apex\_wiki/yyu}}
+\cventry{2011}
+        {Developer}
+        {Undergraduate Transcript and Certificate of Standing Transaction System}
+        {SJTU Office of Academic Affairs}
+        {}
+        {Developed the online ordering part and the interface between this system and Campus Payment system.\newline{}Used C\# and ASP.NET as the programming language in development.}
+\cventry{2009}
+        {Developer}
+        {PuTao\footnotemark{}}
+        {SJTU Network Center}
+        {}
+        {Responsible for the forum development, using PHP as the programming language. }\footnotetext{\link{http://pt.sjtu.edu.cn/}}
+\cventry{2012}
+        {Writer}
+        {Guokr\footnotemark{}}
+        {}
+        {}
+        {Worked as the staff writer for Guokr, mostly on math and informatics.}\footnotetext{\link{http://www.guokr.com/}}
 %\cventry{2009}{队员}{ACM/ICPC}{上海交通大学}{}{在2009年参加上海交通大学ACM队。}
 %\cventry{2008 -- 2009}{Teacher}{Xindi Education}{Tianjin}{}{Worked as teacher of Olympiad in Informatics (OI) in Xindi Education.}
 %\cventry{2009}{Tutor}{Shanghai Experimental High School}{Shanghai}{}{Worked as teacher of Olympiad in Informatics (OI) in Shanghai Experimental High School.}
 
 \section{Awards}
-\cventry{2008}{National Olympiad in Informatics (NOI)}{46th Place}{Silver Medal}{}{Was exempt from College Entrance Exam and admitted into SJTU due to this prize.}
-\cventry{2009}{Google Codejam}{Top 500 Place}{}{}{}
+\cventry{2008}
+        {National Olympiad in Informatics (NOI)}
+        {46th Place}
+        {Silver Medal}
+        {}
+        {Was exempt from College Entrance Exam and admitted into Shanghai Jiao Tong University due to this prize.}
+\cventry{2009}
+        {Google Codejam}
+        {Top 500 Place}
+        {}{}{}
 %\cventry{2009}{Youdao Nanti}{2nd Round}{}{}{}
 
 \section{Skills}
-\cvitem{Algorithm}{ACM/ICPC-level algorithmic problem-solving, Topcoder Algorithm Rating 1705.}
-\cvitem{Language}{\textbf{C\#}, \textbf{C++}, Python, C, PHP, \LaTeX, HTML.} %Mathematica, SQL, Java, CSS
+\cvitem{Algorithm}
+       {ACM/ICPC-level algorithmic problem-solving, Topcoder Algorithm Rating 1646 (rank 1121 of 8431).}
+\cvitem{Language}
+       {\textbf{C\#}, \textbf{C++}, Python, C, PHP, \LaTeX, HTML.} %Mathematica, SQL, Java, CSS
 %\cvitem{Platform}{Linux, MINIX, Windows, Android.}
-\cvitem{Typography}{Familar with typesetting in \LaTeX，and graphics drawing in Asymptote。}
-\cvitem{General}{Excellent ability of learning programming languages and algorithms, readily accepts new things.\newline{}Friendly and easy to get along with other people.}
+\cvitem{Typography}
+       {Familar with typesetting in \LaTeX，and graphics drawing in Asymptote。}
+\cvitem{General}
+       {Excellent ability of learning programming languages and algorithms, readily accepts new things.\newline{}Friendly and easy to get along with other people.}
 
 \end{document}
 
