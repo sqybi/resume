@@ -8,7 +8,7 @@ english_moderncv_files = \
 	$(english_folder)/moderncviconsletters.sty $(english_folder)/moderncviconsmarvosym.sty $(english_folder)/moderncvstylebanking.sty\
 	$(english_folder)/moderncvstylecasual.sty $(english_folder)/moderncvstyleclassic.sty $(english_folder)/moderncvstyleempty.sty\
 	$(english_folder)/moderncvstyleoldstyle.sty $(english_folder)/tweaklist.sty
-english_temp_files = *.aux *.log *.out *.pdf
+english_temp_files = *.aux *.log *.out *.pdf *.gz
 
 resume : Qingyu_Sui_Resume_en.pdf
 
