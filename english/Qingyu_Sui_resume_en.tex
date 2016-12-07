@@ -24,7 +24,7 @@
 
 % adjust the page margins
 \usepackage[perpage,bottom,stable]{footmisc}
-\usepackage[vmargin=1cm,hmargin=1.5cm]{geometry}
+\usepackage[vmargin=2cm,hmargin=2.5cm]{geometry}
 \setlength{\hintscolumnwidth}{2.5cm} % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
@@ -68,13 +68,33 @@
 \cventry{2009 -- 2013}{B.S. of Computer Science and Engineering}{Shanghai Jiao Tong University (SJTU)}{}{}{}
 
 \section{Experience}
-\cventry{2013 -- present}
+\cventry{2015 -- 2016}
+        {Software Engineer}
+        {}
+        {Google}
+        {}
+        {\begin{itemize}%
+         \item Mesa Team, DIA.
+               Mesa\footnotemark[1]{} is a storage system in Google Ads infrastructure.
+               \begin{itemize}%
+               \item Columnar Encoder/Decoder Optimization\newline{}%
+                     Columnar is a new data storage format for Mesa which can improve performance for queries which doesn't require result from all columns.
+                     Responsible for optimizing existing encoders/decoders and compressor for Columnar, implementing new encoders/decoders, and run benchmark on all of them to analyze the performance.
+                     Aim to improve performance and compression rate of the encoders, while not affecting the query speed a lot.
+               \item Modern Schema\newline{}%
+                     Modern Schema is the metadata which contains table definition, table structures, read/write ACLs, etc.
+                     Responsible for some new features and migration work in Modern Schema, such as allowing inheritance for ACLs, organizing and migrating thousands of schema files and fixing their dependencies, etc.
+               \end{itemize}
+         \end{itemize}}
+         \footnotetext[1]{Mesa: Geo-replicated, near real-time, scalable data warehousing, \textit{Proceedings of the VLDB Endowment}}
+\cventry{2013 -- 2015}
         {Software Development Engineer}
         {}
         {Microsoft}
         {}
         {\begin{itemize}%
          \item Ads SCP Team, ASG.
+               Responsible for fixing some bugs and implementing useful tools for team.
          \item Spartan Team, ASG.
                \begin{itemize}%
                \item Execution Broker Engine for Metadata Platform\newline{}%
@@ -104,38 +124,39 @@
         {Visulization Group, Internet Graphics}
         {Microsoft Research Asia}
         {}
-        {Visualization for large-scale evolving text streams based on rose tree.\footnotemark[1]{}}
-        \footnotetext[1]{How Hierarchical Topics Evolve in Large Text Corpora, \textit{IEEE InfoVis 2014}}
+        {Visualization for large-scale evolving text streams based on rose tree.\footnotemark[2]{}}
+        \footnotetext[2]{How Hierarchical Topics Evolve in Large Text Corpora, \textit{IEEE InfoVis 2014}}
 \cventry{2012}
         {SDE Intern}
         {SQL Dev Group, STB}
         {Microsoft}
         {}
-        {Responsible for implementing the NoInit feature in Sync Framework (Data Sync Service), to speed up the initial sync process.}
+        {Responsible for implementing the NoInit feature in Sync Framework (Data Sync Service), to speed up the initial sync ocess.}
 \cventry{2012}
         {Popular Science Writer}
-        {Guokr\footnotemark[2]{}}
+        {Guokr\footnotemark[3]{}}
         {}
         {}
-        {Write popular science articles\footnotemark[3]{} of Math and Informatics area for Guokr.com (in Chinese).}
-        \footnotetext[2]{\link{http://www.guokr.com/}}
-        \footnotetext[3]{\link{http://www.guokr.com/i/0492216944/articles/}}
+        {Write popular science articles\footnotemark[4]{} of Math and Informatics area for Guokr.com (in Chinese).}
+        \footnotetext[3]{\link{http://www.guokr.com/}}
+        \footnotetext[4]{\link{http://www.guokr.com/i/0492216944/articles/}}
+\cventry{2011}
+        {Developer}
+        {Undergraduate Transcript and Certificate of Standing Transaction System}
+        {SJTU Office of Academic Affairs}
+        {}
+        {Responsible for developing the online ordering logic and the interface between this system and Campus Payment system.\newline{}%
+         Used C\# and ASP.NET as the programming language in development.}
 \cventry{2010}
         {Teaching Assistant}
         {Data Structure}
         {SJTU}
         {}
         {Worked as the teaching assistant of the data structure course in SJTU.\newline{}%
-         Responsible for grading, discussion and taking over class for absent instructor\footnotemark[4]{}, etc.}
-        \footnotetext[4]{Instructor: Prof. Yu (\link{http://apex.sjtu.edu.cn/apex\_wiki/yyu})}
-%\cventry{2009}{队员}{ACM/ICPC}{上海交通大学}{}{在2009年参加上海交通大学ACM队。}
+         Responsible for grading, discussion and taking over class for absent instructor\footnotemark[5]{}, etc.}
+        \footnotetext[5]{Instructor: Prof. Yu (\link{http://apex.sjtu.edu.cn/apex\_wiki/yyu})}
+%\cventry{2009}{Team member}{ACM/ICPC}{Shanghai Jiao Tong University}{}{Joined SJTU ACM team in 2009.}
 %\cventry{2008 -- 2009}{Teacher}{Xindi Education}{Tianjin}{}{Worked as teacher of Olympiad in Informatics (OI) in Xindi Education.}
-%\cventry{2011}
-%        {Developer}
-%        {Undergraduate Transcript and Certificate of Standing Transaction System}
-%        {SJTU Office of Academic Affairs}
-%        {}
-%        {Developed the online ordering part and the interface between this system and Campus Payment system.\newline{}Used C\# and ASP.NET as the programming language in development.}
 %\cventry{2009}
 %        {Developer}
 %        {PuTao\footnotemark{}}
@@ -200,10 +221,10 @@
 
 \section{Skills}
 \cvitem{Algorithm}
-       {ACM/ICPC-level algorithmic problem-solving, Topcoder Algorithm Rating 1605\footnotemark[5]{}.}
-       \footnotetext[5]{\link{http://community.topcoder.com/tc?module=MemberProfile\&cr=22692587}}
+       {ACM/ICPC-level algorithmic problem-solving, Topcoder Algorithm Rating 1605\footnotemark[6]{}.}
+       \footnotetext[6]{\link{http://community.topcoder.com/tc?module=MemberProfile\&cr=22692587}}
 \cvitem{Language}
-       {\textbf{C\#}, \textbf{C++}\newline{}%
+       {\textbf{C\#}, \textbf{C++}.\newline{}%
         Python, C, PHP, \LaTeX, HTML.}
         %Mathematica, SQL, Java, CSS
 %\cvitem{Typography}
