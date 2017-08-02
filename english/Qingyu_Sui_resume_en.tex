@@ -68,6 +68,24 @@
 \cventry{2009 -- 2013}{B.S. of Computer Science and Engineering}{Shanghai Jiao Tong University (SJTU)}{}{}{}
 
 \section{Experience}
+\cventry{2017}
+        {Software Engineer}
+        {}
+        {TuSimple}
+        {}
+        {\begin{itemize}%
+         \item Integration Team.
+               \begin{itemize}%
+               \item Hwcap Video Collection System on TX1\newline{}%
+                     Hwcap is a multi-way input video collection system which works on Nvidia Jetson TX1 embedded platform. It will collect eight-way videos from eight cameras which is connected to three MAX9286 Deserializers\footnotemark[1]{}, and then process, encode, compress and store the video using the hardware encoding module on TX1. It can also check its own working status and report to a central server.
+                     Responsible for design of the whole system and implementation of the TX1 video collection/encoding/storage part.
+               \item Lane Fitting Service\newline{}%
+                     This service is a wrapper for our machine learning based lane fitting algorithm. It can get video input from Point Grey camera, get raw lane information by the lane fitting algorithm, then re-format and send it to Human Machine Interface (HMI) and CAN bus on the truck.
+                     It also works as a bridge between CAN bus and HMI. HMI can send some commands to CAN bus by communicating with Lane Fitting Service, as well as get car status (speed, throttle, etc.) from it.
+                     Responsible for design and implementation of the whole system.
+               \end{itemize}
+         \end{itemize}}
+         \footnotetext[1]{MAX9286: \link{https://www.maximintegrated.com/en/products/interface/high-speed-signaling/MAX9286.html}}
 \cventry{2015 -- 2016}
         {Software Engineer}
         {}
@@ -75,7 +93,7 @@
         {}
         {\begin{itemize}%
          \item Mesa Team, DIA.
-               Mesa\footnotemark[1]{} is a storage system in Google Ads infrastructure.
+               Mesa\footnotemark[2]{} is a storage system in Google Ads infrastructure.
                \begin{itemize}%
                \item Columnar Encoder/Decoder Optimization\newline{}%
                      Columnar is a new data storage format for Mesa which can improve performance for queries which doesn't require result from all columns.
@@ -86,7 +104,7 @@
                      Responsible for some new features and migration work in Modern Schema, such as allowing inheritance for ACLs, organizing and migrating thousands of schema files and fixing their dependencies, etc.
                \end{itemize}
          \end{itemize}}
-         \footnotetext[1]{Mesa: Geo-replicated, near real-time, scalable data warehousing, \textit{Proceedings of the VLDB Endowment}}
+         \footnotetext[2]{Mesa: Geo-replicated, near real-time, scalable data warehousing, \textit{Proceedings of the VLDB Endowment}}
 \cventry{2013 -- 2015}
         {Software Development Engineer}
         {}
@@ -119,13 +137,15 @@
                      Responsible for evaluation and improvement of performance.
                \end{itemize}
          \end{itemize}}
+
+\section{Experience (Part-time and Intern)}
 \cventry{2013}
         {Research Intern}
         {Visulization Group, Internet Graphics}
         {Microsoft Research Asia}
         {}
-        {Visualization for large-scale evolving text streams based on rose tree.\footnotemark[2]{}}
-        \footnotetext[2]{How Hierarchical Topics Evolve in Large Text Corpora, \textit{IEEE InfoVis 2014}}
+        {Visualization for large-scale evolving text streams based on rose tree.\footnotemark[3]{}}
+        \footnotetext[3]{How Hierarchical Topics Evolve in Large Text Corpora, \textit{IEEE InfoVis 2014}}
 \cventry{2012}
         {SDE Intern}
         {SQL Dev Group, STB}
@@ -134,12 +154,12 @@
         {Responsible for implementing the NoInit feature in Sync Framework (Data Sync Service), to speed up the initial sync ocess.}
 \cventry{2012}
         {Popular Science Writer}
-        {Guokr\footnotemark[3]{}}
+        {Guokr\footnotemark[4]{}}
         {}
         {}
-        {Write popular science articles\footnotemark[4]{} of Math and Informatics area for Guokr.com (in Chinese).}
-        \footnotetext[3]{\link{http://www.guokr.com/}}
-        \footnotetext[4]{\link{http://www.guokr.com/i/0492216944/articles/}}
+        {Write popular science articles\footnotemark[5]{} of Math and Informatics area for Guokr.com (in Chinese).}
+        \footnotetext[4]{Guokr: \link{http://www.guokr.com/}}
+        \footnotetext[5]{Articles on Guokr: \link{http://www.guokr.com/i/0492216944/articles/}}
 \cventry{2011}
         {Developer}
         {Undergraduate Transcript and Certificate of Standing Transaction System}
@@ -153,8 +173,8 @@
         {SJTU}
         {}
         {Worked as the teaching assistant of the data structure course in SJTU.\newline{}%
-         Responsible for grading, discussion and taking over class for absent instructor\footnotemark[5]{}, etc.}
-        \footnotetext[5]{Instructor: Prof. Yu (\link{http://apex.sjtu.edu.cn/apex\_wiki/yyu})}
+         Responsible for grading, discussion and taking over class for absent instructor\footnotemark[6]{}, etc.}
+        \footnotetext[6]{Instructor: Prof. Yu (\link{http://apex.sjtu.edu.cn/apex\_wiki/yyu})}
 %\cventry{2009}{Team member}{ACM/ICPC}{Shanghai Jiao Tong University}{}{Joined SJTU ACM team in 2009.}
 %\cventry{2008 -- 2009}{Teacher}{Xindi Education}{Tianjin}{}{Worked as teacher of Olympiad in Informatics (OI) in Xindi Education.}
 %\cventry{2009}
@@ -166,6 +186,11 @@
 %\cventry{2009}{Tutor}{Shanghai Experimental High School}{Shanghai}{}{Worked as teacher of Olympiad in Informatics (OI) in Shanghai Experimental High School.}
 
 \section{Publications}
+\cventry{2014}
+        {How Hierarchical Topics Evolve in Large Text Corpora}
+        {IEEE transactions on visualization and computer graphics\footnotemark[7]{}}{}{}
+        {Weiwei Cui, Shixia Liu, Zhuofeng Wu, Hao Wei}
+        \footnotetext[7]{Worked on this paper during the internship at MSRA.}
 \cventry{2014}
         {Clustering Image Search Results by Entity Disambiguation}
         {ECML/PKDD 2014}{}{}
@@ -221,16 +246,16 @@
 
 \section{Skills}
 \cvitem{Algorithm}
-       {ACM/ICPC-level algorithmic problem-solving, Topcoder Algorithm Rating 1605\footnotemark[6]{}.}
-       \footnotetext[6]{\link{http://community.topcoder.com/tc?module=MemberProfile\&cr=22692587}}
+       {ACM/ICPC-level algorithmic problem-solving, Topcoder Algorithm Rating 1605\footnotemark[8]{}.}
+       \footnotetext[8]{TopCoder Profile: https://www.topcoder.com/members/sqybi/details/?track=DATA\_SCIENCE\&subTrack=SRM}
 \cvitem{Language}
-       {\textbf{C\#}, \textbf{C++}.\newline{}%
-        Python, C, PHP, \LaTeX, HTML.}
+       {\textbf{C\#}, \textbf{C++}, \textbf{Python}.\newline{}%
+        C, PHP, \LaTeX, HTML.}
         %Mathematica, SQL, Java, CSS
 %\cvitem{Typography}
 %       {Familar with typesetting in \LaTeX and graphics drawing in Asymptote.}
-\cvitem{General}
-       {Excellent ability of learning programming languages and algorithms, readily accepts new things.}
+%\cvitem{General}
+%       {Excellent ability of learning programming languages and algorithms, readily accepts new things.}
 %        Friendly and easily getting along with other people.}
 \end{document}
 
