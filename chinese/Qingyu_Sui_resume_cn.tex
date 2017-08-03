@@ -1,0 +1,264 @@
+%% start of file
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[10pt,a4paper,roman]{moderncv} % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\usepackage{xeCJK}
+
+% moderncv themes
+\moderncvstyle{classic} % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue} % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault} % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\nopagenumbers{} % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+%\usepackage[utf8]{inputenc} % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8} % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% set fonts
+%\setmainfont{Palatino Linotype}
+%\setsansfont{Helvetica}
+
+% adjust the page margins
+\usepackage[perpage,bottom,stable]{footmisc}
+\usepackage[vmargin=2cm,hmargin=2.5cm]{geometry}
+\setlength{\hintscolumnwidth}{2.5cm} % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm} % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\name{}{隋清宇}
+%\address{\#401, Zhichundongli, Zhichun Road, Haidian District}{Beijing, China}{China} % optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+\phone[mobile]{+86~186~0057~4747} % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+\email{sqybilly@gmail.com} % optional, remove / comment the line if not wanted
+\social[linkedin]{sqybi} % optional, remove / comment the line if not wanted
+\social[github]{sqybi} % optional, remove / comment the line if not wanted
+
+%\title{Resumé title} % optional, remove / comment the line if not wanted
+%\phone[fixed]{+2~(345)~678~901}
+%\phone[fax]{+3~(456)~789~012}
+%\homepage{sqybi.com} % optional, remove / comment the line if not wanted
+%\social[twitter]{sqybi} % optional, remove / comment the line if not wanted
+%\extrainfo{additional information} % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture} % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote} % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+\vspace{-1cm}
+
+\section{教育经历}
+\cventry{2009 -- 2013}{工学学士}{计算机科学与工程}{上海交通大学}{}{}
+
+\section{工作经历}
+\cventry{2017 -- 至今}
+        {高级软件工程师}
+        {}
+        {北京图森未来}
+        {}
+        {\begin{itemize}%
+         \item Integration Team.
+               \begin{itemize}%
+               \item TX1上的Hwcap视频采集系统\newline{}%
+                     Hwcap是一套在NVIDIA Jetson TX1嵌入式平台上工作的多路输入的视频采集系统。它可以收集由三个MAX9286解串器\footnotemark[1]{}采集的八路视频源，并利用TX1上的编码模块处理、编码、压缩以及存储这些视频。此外，它还可以检测自己的工作状态，并定期上报给中心服务器。\newline{}%
+                     负责了整个系统的设计以及TX1上视频采集/编码/存储部分的实现。
+               \item 车道线匹配系统\newline{}%
+                     这套系统是一个针对于公司基于机器学习的车道线匹配算法的封装。它可以从Point Grey相机获取视频输入，利用车道线匹配算法得到原始车道线信息，并将其重新格式化后转发给前端的人机界面（HMI）和卡车上后端的CAN总线。\newline{}%
+                     这套系统同时也作为HMI和CAN总线之间交互的接口使用。它可以将HMI上的操作命令通过CAN总线转发给车辆，也可以把CAN总线上车辆的信息（例如速度、油门力度等）实时转发回HMI。\newline{}%
+                     负责整个系统的设计和实现。
+               \end{itemize}
+         \end{itemize}}
+         \footnotetext[1]{MAX9286：\link{https://www.maximintegrated.com/en/products/interface/high-speed-signaling/MAX9286.html}}
+\cventry{2015 -- 2016}
+        {软件工程师}
+        {}
+        {Google上海}
+        {}
+        {\begin{itemize}%
+         \item Mesa Team, DIA.
+               Mesa\footnotemark[2]{}是一套包含在Google广告基础设施中的存储系统。
+               \begin{itemize}%
+               \item Modern Schema\newline{}%
+                     Modern Schema是Mesa中包含了表定义、表结构、访问控制表（ACL）等内容的元数据。\newline{}%
+                     负责Modern Schema的迁移工作和其上的一些新特性，例如允许ACL的继承以及重新组织和迁移上千个Modern Schema文件并修复它们之间和外部的依赖关系等。
+               \item Columnar编解码器优化\newline{}%
+                     Columnar是Mesa的一种新的数据存储格式。它可以在查询请求只包含了少量数据列的时候提高查询的效率。\newline{}%
+                     负责现有的Columnar编解码器的性能优化，实现新的编解码器，以及创建用于分析全部编解码器性能的基准测试。\newline{}%
+                     工作的目标是提升编码的性能和压缩率，同时保证不会对查询速度有大幅的影响。
+               \end{itemize}
+         \end{itemize}}
+         \footnotetext[2]{Mesa: Geo-replicated, near real-time, scalable data warehousing, \textit{Proceedings of the VLDB Endowment}}
+\cventry{2013 -- 2015}
+        {软件开发工程师}
+        {}
+        {微软北京}
+        {}
+        {\begin{itemize}%
+         \item Ads SCP Team, ASG.
+               负责修改代码中的错误和一些实用工具的实现。
+         \item Spartan Team, ASG.
+               \begin{itemize}%
+               \item 为Metadata Platform实现的Execution Broker引擎\newline{}%
+                     这个引擎可以接受一些将数据从一个存储服务移动到另一个存储服务的请求，并在一个内部的作业调度平台上执行与监视这些请求。这个项目将提供给Office 365大数据平台和一些其它的内部用户使用。\newline{}%
+                     负责整个引擎的设计和实现。
+               \end{itemize}
+         \item (Cortana) Proactive Experience Team, Information Platform and Experiences, STC.
+               \begin{itemize}%
+               \item Cortana Proactive Canvas Experience\newline{}%
+                     为Cortana实现了翻译推荐的功能。这个功能可以基于用户的当前位置、常住地、当地时间等信息，适时推荐一些有用的日常用语。\newline{}%
+                     负责系统后端的设计，以及前端与后端的具体实现。
+               \item Cortana诊断仪表盘\newline{}%
+                     一套为Cortana开发者设计的带有用户友好的前端的诊断系统。\newline{}%
+                     负责实现一些端到端的调试场景，包括日志收集、日志处理、用户交互（使用HTML和Javascript/JQuery）等。
+               \end{itemize}
+         \item Activity Storage Team, MSN Social and Community Platform, STC.
+               \begin{itemize}%
+               \item 图片存储系统\newline{}%
+                     Bing Score的图片存储后端.\newline{}%
+                     负责为图片存储系统实现一套基于Azure的性能测试框架。
+               \item Activity Storage\newline{}%
+                     一个用于MSN、Bing Score等服务后端的No-SQL存储。这套系统致力于实现一套高可靠性、包含异地备份且可以快速响应的内存存储服务。\newline{}%
+                     负责评估和改进系统的性能。
+               \end{itemize}
+         \end{itemize}}
+
+\section{工作经历（实习/兼职）}
+\cventry{2013}
+        {研究员实习生}
+        {Visulization Group, Internet Graphics}
+        {微软亚洲研究院}
+        {}
+        {基于Rose树的大规模文字流进化过程可视化。\footnotemark[3]{}}
+        \footnotetext[3]{How Hierarchical Topics Evolve in Large Text Corpora, \textit{IEEE InfoVis 2014}}
+\cventry{2012}
+        {软件工程师实习生}
+        {SQL Dev Group, STB}
+        {微软上海}
+        {}
+        {负责实现Sync Framework（Data Sync Service）中的NoInit功能，用于提升首次同步数据库时的速度。}
+\cventry{2012}
+        {特约作者}
+        {死理性派主题站}
+        {果壳网\footnotemark[4]{}}
+        {}
+        {担任果壳网死理性派主题站特约作者，负责撰写数学与信息学方面的科普文章\footnotemark[5]{}。}
+        \footnotetext[4]{果壳网：\link{http://www.guokr.com/}}
+        \footnotetext[5]{文章列表：\link{http://www.guokr.com/i/0492216944/articles/}}
+\cventry{2011}
+        {开发者}
+        {本科生成绩单、在读证明办理预约系统}
+        {上海交通大学教务处}
+        {}
+        {参与此系统的开发工作，主要处理预约请求流程部分以及与校园支付通系统连接部分的代码。}
+\cventry{2010}
+        {助教}
+        {数据结构}
+        {上海交通大学}
+        {}
+        {担任上海交通大学数据结构课程助教，负责作业批改、习题讲解、代课等。\footnotemark[6]{}}
+        \footnotetext[6]{任课教师：俞勇教授（\link{http://apex.sjtu.edu.cn/apex\_wiki/yyu}）}
+%\cventry{2009}{Team member}{ACM/ICPC}{Shanghai Jiao Tong University}{}{Joined SJTU ACM team in 2009.}
+%\cventry{2008 -- 2009}{Teacher}{Xindi Education}{Tianjin}{}{Worked as teacher of Olympiad in Informatics (OI) in Xindi Education.}
+\cventry{2009}
+        {开发者}
+        {葡萄\footnotemark[7]{}}
+        {上海交通大学网络中心}
+        {}
+        {负责网站论坛部分的开发。}
+        \footnotetext[7]{葡萄：\link{http://pt.sjtu.edu.cn/}}
+%\cventry{2009}{Tutor}{Shanghai Experimental High School}{Shanghai}{}{Worked as teacher of Olympiad in Informatics (OI) in Shanghai Experimental High School.}
+
+\section{发表/参与论文}
+\cventry{2014}
+        {How Hierarchical Topics Evolve in Large Text Corpora\footnotemark[8]}
+        {IEEE transactions on visualization and computer graphics{}}{}{}
+        {Weiwei Cui, Shixia Liu, Zhuofeng Wu, Hao Wei}
+        \footnotetext[8]{在微软亚洲研究院作为实习生工作时参与了此工作的研究。}
+\cventry{2014}
+        {Clustering Image Search Results by Entity Disambiguation}
+        {ECML/PKDD 2014}{}{}
+        {Kaiqi Zhao, Zhiyuan Cai, Qingyu Sui, Enxun Wei and Kenny Zhu}
+\cventry{2013}
+        {CISC: Clustered Image Search by Conceptualization}
+        {EDBT 2013}{}{}
+        {Kaiqi Zhao, Enxun Wei, Qingyu Sui, Kenny Zhu and Eric Lo}
+
+%\section{Projects}
+%\cventry{2011 -- 2012}
+%        {Context Extraction for Name Disambiguation on Structured Web Pages}{Participation in Research Program (PRP)}
+%        {Advanced Data And Programming Technology Lab\footnotemark{}}
+%        {SJTU}
+%        {\begin{itemize}
+%          \item{An algorithm which can extract context from a webpage with a specific entity name, used as a preprocessor for name disambiguation methods.}
+%          \item{Developed majority of the algorithm, and finished the calibration of the test dataset, as a principal member of this project.}
+%         \end{itemize}
+%        }
+%        \footnotetext{\link[http://www.cs.sjtu.edu.cn/$\sim$kzhu/adapt]{http://www.cs.sjtu.edu.cn/~kzhu/adapt}}
+%\cventry{2012 -- present}
+%        {Image Classification by Context Conceptualization}
+%        {}
+%        {Advanced Data And Programming Technology Lab}
+%        {SJTU}
+%        {\begin{itemize}
+%          \item{Classify images in the search result of Google Image by textual information from their original webpages. We use incremental HAC as the clustering algorithm, Sibling and Wikification to extract signals from HTML text.}
+%          \item{Responsible for the design and implementation of the core algorithm.}
+%         \end{itemize}
+%        }
+%\cventry{2010 -- 2012}
+%        {The Research and Development of Special Acoustic Directional Locator}
+%        {The 2nd Shanghai Jiao Tong University Students' Innovative Practice Projects}
+%        {}
+%        {}
+%        {\begin{itemize}
+%          \item{A system which can react to special sound and locate the sound source.}
+%          \item{Developed the Labview code in the project.}
+%         \end{itemize}
+%        }
+
+\section{奖项}
+\cventry{2009}
+        {Google Codejam}
+        {前500名}
+        {}{}{}
+\cventry{2008}
+        {全国青少年信息学奥林匹克竞赛（NOI）}
+        {第46名}
+        {银牌}
+        {}{}
+%\cventry{2009}{Youdao Nanti}{2nd Round}{}{}{}
+
+\section{技能}
+\cvitem{算法}
+       {ACM/ICPC解题能力，Topcoder Algorithm Rating 1605\footnotemark[9]{}.}
+       \footnotetext[9]{TopCoder Profile: https://www.topcoder.com/members/sqybi/details/?track=DATA\_SCIENCE\&subTrack=SRM}
+\cvitem{语言}
+       {\textbf{C\#}, \textbf{C++}, \textbf{Python}.\newline{}%
+        C, PHP, \LaTeX, HTML.}
+        %Mathematica, SQL, Java, CSS
+%\cvitem{Typography}
+%       {Familar with typesetting in \LaTeX and graphics drawing in Asymptote.}
+%\cvitem{General}
+%       {Excellent ability of learning programming languages and algorithms, readily accepts new things.}
+%        Friendly and easily getting along with other people.}
+\end{document}
+
+%% end of file.
+
