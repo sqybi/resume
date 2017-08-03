@@ -68,7 +68,7 @@
 \cventry{2009 -- 2013}{B.S. of Computer Science and Engineering}{Shanghai Jiao Tong University (SJTU)}{}{}{}
 
 \section{Experience}
-\cventry{2017}
+\cventry{2017 -- Present}
         {Software Engineer}
         {}
         {TuSimple Beijing}
@@ -76,13 +76,13 @@
         {\begin{itemize}%
          \item Integration Team.
                \begin{itemize}%
-               \item Hwcap Video Collection System on TX1\newline{}%
-                     Hwcap is a multi-way input video collection system which works on NVIDIA Jetson TX1 embedded platform. It will collect eight-way videos from eight cameras which is connected to three MAX9286 Deserializers\footnotemark[1]{}, and then process, encode, compress and store the video using the hardware encoding module on TX1. It can also check its own working status and report to a central server.\newline{}%
-                     Responsible for design of the whole system and implementation of the TX1 video collection/encoding/storage part.
                \item Lane Fitting Service\newline{}%
                      This service is a wrapper for our machine learning based lane fitting algorithm. It can get video input from Point Grey camera, get raw lane information by the lane fitting algorithm, then re-format and send it to Human Machine Interface (HMI) and CAN bus on the truck.\newline{}%
                      It also works as a bridge between CAN bus and HMI. HMI can send some commands to CAN bus by communicating with Lane Fitting Service, as well as get car status (speed, throttle, etc.) from it.\newline{}%
                      Responsible for design and implementation of the whole system.
+               \item Hwcap Video Collection System on TX1\newline{}%
+                     Hwcap is a multi-way input video collection system which works on NVIDIA Jetson TX1 embedded platform. It will collect eight-way videos from eight cameras which is connected to three MAX9286 Deserializers\footnotemark[1]{}, and then process, encode, compress and store the video using the hardware encoding module on TX1. It can also check its own working status and report to a central server.\newline{}%
+                     Responsible for design of the whole system and implementation of the TX1 video collection/encoding/storage part.
                \end{itemize}
          \end{itemize}}
          \footnotetext[1]{MAX9286: \link{https://www.maximintegrated.com/en/products/interface/high-speed-signaling/MAX9286.html}}
@@ -95,13 +95,13 @@
          \item Mesa Team, DIA.
                Mesa\footnotemark[2]{} is a storage system in Google Ads infrastructure.
                \begin{itemize}%
+               \item Modern Schema\newline{}%
+                     Modern Schema is the metadata which contains table definition, table structures, read/write ACLs, etc.\newline{}%
+                     Responsible for some new features and migration work in Modern Schema, such as allowing inheritance for ACLs, organizing and migrating thousands of schema files and fixing their dependencies, etc.
                \item Columnar Encoder/Decoder Optimization\newline{}%
                      Columnar is a new data storage format for Mesa which can improve performance for queries which doesn't require result from all columns.\newline{}%
                      Responsible for optimizing existing encoders/decoders and compressor for Columnar, implementing new encoders/decoders, and run benchmark on all of them to analyze the performance.\newline{}%
                      Aim to improve performance and compression rate of the encoders, while not affecting the query speed a lot.
-               \item Modern Schema\newline{}%
-                     Modern Schema is the metadata which contains table definition, table structures, read/write ACLs, etc.\newline{}%
-                     Responsible for some new features and migration work in Modern Schema, such as allowing inheritance for ACLs, organizing and migrating thousands of schema files and fixing their dependencies, etc.
                \end{itemize}
          \end{itemize}}
          \footnotetext[2]{Mesa: Geo-replicated, near real-time, scalable data warehousing, \textit{Proceedings of the VLDB Endowment}}
@@ -117,12 +117,13 @@
                \begin{itemize}%
                \item Execution Broker Engine for Metadata Platform\newline{}%
                      An engine which takes some requirements of moving data from one storage to another, then execute and monitor them on an internal job scheduling platform. This is for Office 365 Big Data Platform and some other internal customers.\newline{}%
-                     Responsible for the design and implementation of whole engine.
+                     Responsible for the design and implementation of whole engine together with other two colleagues.
                \end{itemize}
          \item (Cortana) Proactive Experience Team, Information Platform and Experiences, STC.
                \begin{itemize}%
                \item Cortana Proactive Canvas Experience\newline{}%
-                     Responsible for some unpublished features on Cortana proactive canvas.
+                     Implemented a traslation suggestion feature for Cortana. It will suggest some useful expressions in local language base on user's current location, permanent residence, current local time, etc.\newline{}%
+                     Responsible for design of the back-end, and implementation for both back-end and front-end.
                \item Diagnostic Dashboard for Cortana\newline{}%
                      A diagnostic infrastructure for Cortana developers with user-friendly frontend.\newline{}%
                      Responsible for some of the end-to-end debug scenarios, including log collection, log processing, user interface (HTML and Javascript/JQuery) and so on.
@@ -133,7 +134,7 @@
                      The image storage backend for Bing Score.\newline{}%
                      Responsible for a performance test framework on Azure for this storage.
                \item Activity Storage\newline{}%
-                     A no-SQL storage as the backend of MSN, Bing Score, etc., aimed for a real-time in-memory storage service.\newline{}%
+                     A no-SQL storage as the backend of MSN, Bing Score, etc., aimed for a real-time, high reliability and geo-replicated in-memory storage service.\newline{}%
                      Responsible for evaluation and improvement of performance.
                \end{itemize}
          \end{itemize}}
@@ -151,11 +152,11 @@
         {SQL Dev Group, STB}
         {Microsoft}
         {}
-        {Responsible for implementing the NoInit feature in Sync Framework (Data Sync Service), to speed up the initial sync ocess.}
+        {Responsible for implementing the NoInit feature in Sync Framework (Data Sync Service), to speed up the initial sync process.}
 \cventry{2012}
         {Popular Science Writer}
-        {Guokr\footnotemark[4]{}}
         {}
+        {Guokr\footnotemark[4]{}}
         {}
         {Write popular science articles\footnotemark[5]{} of Math and Informatics area for Guokr.com (in Chinese).}
         \footnotetext[4]{Guokr: \link{http://www.guokr.com/}}
@@ -165,8 +166,7 @@
         {Undergraduate Transcript and Certificate of Standing Transaction System}
         {SJTU Office of Academic Affairs}
         {}
-        {Responsible for developing the online ordering logic and the interface between this system and Campus Payment system.\newline{}%
-         Used C\# and ASP.NET as the programming language in development.}
+        {Responsible for developing the online ordering logic and the interface between this system and Campus Payment system.}
 \cventry{2010}
         {Teaching Assistant}
         {Data Structure}
@@ -177,20 +177,21 @@
         \footnotetext[6]{Instructor: Prof. Yu (\link{http://apex.sjtu.edu.cn/apex\_wiki/yyu})}
 %\cventry{2009}{Team member}{ACM/ICPC}{Shanghai Jiao Tong University}{}{Joined SJTU ACM team in 2009.}
 %\cventry{2008 -- 2009}{Teacher}{Xindi Education}{Tianjin}{}{Worked as teacher of Olympiad in Informatics (OI) in Xindi Education.}
-%\cventry{2009}
-%        {Developer}
-%        {PuTao\footnotemark{}}
-%        {SJTU Network Center}
-%        {}
-%        {Responsible for the forum development, using PHP as the programming language. }\footnotetext{\link{http://pt.sjtu.edu.cn/}}
+\cventry{2009}
+        {Developer}
+        {PuTao\footnotemark[7]{}}
+        {SJTU Network Center}
+        {}
+        {Responsible for the forum development.}
+		\footnotetext[7]{PuTao: \link{http://pt.sjtu.edu.cn/}}
 %\cventry{2009}{Tutor}{Shanghai Experimental High School}{Shanghai}{}{Worked as teacher of Olympiad in Informatics (OI) in Shanghai Experimental High School.}
 
 \section{Publications}
 \cventry{2014}
-        {How Hierarchical Topics Evolve in Large Text Corpora}
-        {IEEE transactions on visualization and computer graphics\footnotemark[7]{}}{}{}
+        {How Hierarchical Topics Evolve in Large Text Corpora\footnotemark[8]{}}
+        {IEEE transactions on visualization and computer graphics}{}{}
         {Weiwei Cui, Shixia Liu, Zhuofeng Wu, Hao Wei}
-        \footnotetext[7]{Worked on this paper during the internship at MSRA.}
+        \footnotetext[8]{Worked on this paper during the internship at MSRA.}
 \cventry{2014}
         {Clustering Image Search Results by Entity Disambiguation}
         {ECML/PKDD 2014}{}{}
@@ -246,8 +247,8 @@
 
 \section{Skills}
 \cvitem{Algorithm}
-       {ACM/ICPC-level algorithmic problem-solving, Topcoder Algorithm Rating 1605\footnotemark[8]{}.}
-       \footnotetext[8]{TopCoder Profile: https://www.topcoder.com/members/sqybi/details/?track=DATA\_SCIENCE\&subTrack=SRM}
+       {ACM/ICPC-level algorithmic problem-solving, Topcoder Algorithm Rating 1605\footnotemark9]{}.}
+       \footnotetext[9]{TopCoder Profile: https://www.topcoder.com/members/sqybi/details/?track=DATA\_SCIENCE\&subTrack=SRM}
 \cvitem{Language}
        {\textbf{C\#}, \textbf{C++}, \textbf{Python}.\newline{}%
         C, PHP, \LaTeX, HTML.}
